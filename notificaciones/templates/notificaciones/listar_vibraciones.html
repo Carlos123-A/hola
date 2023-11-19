@@ -1,0 +1,30 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Listado de Vibraciones{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Listado de Vibraciones</h1>
+        
+        <!-- Agrega una tabla para mostrar más detalles -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Intensidad</th>
+                    <th scope="col">Timestamp</th>
+                    <!-- Agrega más encabezados según los detalles que desees mostrar -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for vibracion in vibraciones %}
+                    <tr>
+                        <td>{{ vibracion.intensidad }}</td>
+                        <td>{{ vibracion.timestamp }}</td>
+                        <!-- Agrega más columnas según los detalles que desees mostrar -->
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+    
