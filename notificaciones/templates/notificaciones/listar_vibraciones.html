@@ -7,24 +7,28 @@
         <h1 class="mb-4">Listado de Vibraciones</h1>
         
         <!-- Agrega una tabla para mostrar más detalles -->
+        <!-- Agrega una tabla para mostrar más detalles -->
         <table class="table">
             <thead>
                 <tr>
                     <th scope="col">Intensidad</th>
                     <th scope="col">Timestamp</th>
+                    <th scope="col">Valor Numérico</th>
                     <!-- Agrega más encabezados según los detalles que desees mostrar -->
                 </tr>
             </thead>
             <tbody>
                 {% for vibracion in vibraciones %}
                     <tr>
-                        <td>{{ vibracion.intensidad }}</td>
+                        <td>{{ vibracion.calcular_intensidad }}</td>
                         <td>{{ vibracion.timestamp }}</td>
+                        <td>{{ vibracion.valor_numerico }}</td>
                         <!-- Agrega más columnas según los detalles que desees mostrar -->
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
+
     </div>
 {% endblock %}
     

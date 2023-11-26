@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 function actualizarListaVibraciones(vibraciones) {
     const listaVibraciones = document.getElementById('lista-vibraciones');
     const ul = listaVibraciones.querySelector('ul');
@@ -9,11 +10,10 @@ function actualizarListaVibraciones(vibraciones) {
     // Recorrer las vibraciones y agregarlas a la lista
     vibraciones.forEach(vibracion => {
         const li = document.createElement('li');
-        li.textContent = `Intensidad: ${vibracion.intensidad} - Timestamp: ${vibracion.timestamp}`;
+        li.textContent = `Intensidad: ${vibracion.intensidad} - Timestamp: ${vibracion.timestamp} - Valor Numérico: ${vibracion.valor_numerico}`;
         ul.appendChild(li);
     });
 }
-
 
 document.addEventListener('DOMContentLoaded', () => {
     // Obtener datos al cargar la página
@@ -42,6 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => {
             console.log('Datos enviados correctamente:', response.data);
             // Puedes actualizar la lista de vibraciones si lo deseas
+            axios.get('http://localhost:8000/notificaciones/api/vibraciones/')
+                .then(response => {
+                    actualizarListaVibraciones(response.data);
+                })
+                .catch(error => {
+                    console.error('Error al obtener datos de la API:', error);
+                });
         })
         .catch(error => {
             console.error('Error al enviar datos al servidor:', error);
