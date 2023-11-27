@@ -4,7 +4,6 @@ from .models import Vibracion
 
 class VibracionSerializer(serializers.ModelSerializer):
     intensidad = serializers.CharField(read_only=True)
-    valor_numerico = serializers.DecimalField(write_only=True, max_digits=5, decimal_places=2)
 
     class Meta:
         model = Vibracion
