@@ -14,11 +14,11 @@ class Vibracion(models.Model):
     valor_numerico = models.DecimalField(default=50.0, max_digits=5, decimal_places=2)
 
     def calcular_intensidad(self):
-        if self.valor_numerico >= 850:
+        if self.valor_numerico >= 1:  
             return 'Fuerte'
-        elif self.valor_numerico >= 400:
+        elif self.valor_numerico >= 0.5:  
             return 'Moderado'
-        elif self.valor_numerico >= 0:
+        elif self.valor_numerico >= 0:  
             return 'Débil'
         else:
             return 'Desconocido'
