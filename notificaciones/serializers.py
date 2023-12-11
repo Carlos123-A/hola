@@ -15,9 +15,9 @@ class VibracionSerializer(serializers.ModelSerializer):
         return super().create(validated_data)
 
     def calcular_intensidad(self, valor_numerico):
-        if valor_numerico >= 1:
+        if valor_numerico >= 2:
             return 'Fuerte'
-        elif valor_numerico >= 0.5:
+        elif valor_numerico >= 1:
             return 'Moderado'
         elif valor_numerico >= 0:
             return 'Débil'

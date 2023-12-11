@@ -46,9 +46,9 @@ class ListaVibracionesAPI(ModelViewSet):
 # ...
 
 def calcular_intensidad(valor_numerico):
-    if valor_numerico >= 1:
+    if valor_numerico >= 2:
         return 'Fuerte'
-    elif valor_numerico >= 0.5:
+    elif valor_numerico >= 1:
         return 'Moderado'
     elif valor_numerico >= 0:
         return 'Débil'
